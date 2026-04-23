@@ -5,6 +5,8 @@ import Skills from "./components/Skills"
 import Projects from "./components/Projects"
 import Education from "./components/Education"
 import Contact from "./components/Contact"
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
       <Projects />
       <Education />
       <Contact />
+      <ToastContainer position="top-right" autoClose={2000} theme="dark" />
     </>
   )
 }

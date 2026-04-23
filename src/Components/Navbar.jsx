@@ -1,19 +1,65 @@
+import { useEffect, useState } from "react"
+
 const Navbar = () => {
+
+  const [active, setActive] = useState("home")
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["home", "about", "projects", "contact", "education"]
+
+      sections.forEach((id) => {
+        const section = document.getElementById(id)
+        if (section) {
+          const top = section.offsetTop - 100
+          const height = section.offsetHeight
+
+          if (window.scrollY >= top && window.scrollY < top + height) {
+            setActive(id)
+          }
+        }
+      })
+    }
+
+    window.addEventListener("scroll", handleScroll)
+
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  const navLinks = [
+    { name: "Home", id: "home" },
+    { name: "About", id: "about" },
+    { name: "Projects", id: "projects" },
+    { name: "Contact", id: "contact" },
+    { name: "Education", id: "education" },
+  ]
+
   return (
-    <nav className="fixed top-0 w-full z-50 backdrop-blur-md bg-white/5 border-b border-white/10 text-white px-8 py-4 flex justify-between">
+    <nav className="fixed w-full top-0 z-50 bg-black/30 backdrop-blur-md border-b border-white/10">
 
-      <h1 className="text-xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-        Gunjan
-      </h1>
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
-      <ul className="flex gap-8 text-sm">
-        <li><a href="#home" className="hover:text-purple-400">Home</a></li>
-        <li><a href="#about" className="hover:text-purple-400">About</a></li>
-        <li><a href="#projects" className="hover:text-purple-400">Projects</a></li>
-        <li><a href="#contact" className="hover:text-purple-400">Contact</a></li>
-        <li><a href="#education" className="hover:text-purple-400">Education</a></li>
-      </ul>
+        <h1 className="text-xl font-bold text-purple-400">Gunjan</h1>
 
+        <div className="flex gap-6">
+
+          {navLinks.map((link) => (
+            <a
+              key={link.id}
+              href={`#${link.id}`}
+              className={`transition duration-300 ${
+                active === link.id
+                  ? "text-pink-400 border-b-2 border-pink-400 pb-1"
+                  : "text-gray-300 hover:text-white"
+              }`}
+            >
+              {link.name}
+            </a>
+          ))}
+
+        </div>
+
+      </div>
     </nav>
   )
 }
