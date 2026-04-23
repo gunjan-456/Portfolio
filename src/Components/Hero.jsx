@@ -7,17 +7,16 @@ const Hero = () => {
       className="min-h-screen flex items-center justify-center relative overflow-hidden bg-[#0a0a0a] text-white scroll-smooth"
     >
 
-      {/* Background Gradient */}
+     
       <div className="absolute inset-0 bg-gradient-to-br from-[#1a0b2e] via-[#0a0a0a] to-[#0b1f3a]"></div>
 
-      {/* Glow Effects */}
+     
       <div className="absolute w-72 h-72 bg-purple-600 rounded-full blur-3xl opacity-20 top-10 left-10 animate-pulse"></div>
       <div className="absolute w-72 h-72 bg-blue-600 rounded-full blur-3xl opacity-20 bottom-10 right-10 animate-pulse"></div>
 
-      {/* Content */}
       <div className="relative z-10 text-center max-w-2xl px-6">
 
-        {/* Profile Image */}
+       
         <div className="relative w-36 h-36 mx-auto mb-6">
           <img
             src={profile}
@@ -27,7 +26,7 @@ const Hero = () => {
           <div className="absolute inset-0 rounded-full border-4 border-purple-400 animate-ping opacity-20"></div>
         </div>
 
-        {/* Heading */}
+        
         <h1 className="text-4xl md:text-6xl font-bold">
           Hi, I'm{" "}
           <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
@@ -36,14 +35,14 @@ const Hero = () => {
         </h1>
 
         <p className="mt-3 text-lg text-gray-300">
-          Full Stack Developer | MERN Stack
+          Full Stack Developer building scalable and real-time web applications
         </p>
 
         <p className="mt-4 text-gray-400 max-w-lg mx-auto">
           Building scalable, high-performance web applications with modern UI and clean architecture.
         </p>
 
-        {/* Buttons */}
+       
         <div className="mt-8 flex justify-center gap-4 flex-wrap">
           
           <a href="#projects">
